@@ -12,12 +12,12 @@ class MessageClient {
 		this.http = http.build();
 	}
 
+	// <.>
 	Message getMessage(String token) {
-
 		return this.http //
 			.get()//
 			.uri("http://localhost:8081/message") //
-			.headers(h -> h.setBearerAuth(token))
+			.headers(h -> h.setBearerAuth(token)) // <.>
 			.retrieve() //
 			.body(Message.class);
 	}

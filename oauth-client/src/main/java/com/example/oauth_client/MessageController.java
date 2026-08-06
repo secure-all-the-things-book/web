@@ -12,7 +12,7 @@ class MessageController {
 
 	private final MessageClient client;
 
-	public MessageController(MessageClient client) {
+	MessageController(MessageClient client) {
 		this.client = client;
 	}
 
