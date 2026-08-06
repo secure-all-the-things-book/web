@@ -15,27 +15,22 @@ import static org.springframework.web.servlet.function.RouterFunctions.route;
 @Configuration
 class RouteConfiguration {
 
-    // <.>
-    @Bean
-    @Order(Ordered.LOWEST_PRECEDENCE)
-    RouterFunction<ServerResponse> ui() {
-        return route()
-                .GET("/**", http())
-                .before(BeforeFilterFunctions.uri("http://localhost:8020"))
-                .build();
-    }
+	// <.>
+	@Bean
+	@Order(Ordered.LOWEST_PRECEDENCE)
+	RouterFunction<ServerResponse> ui() {
+		return route().GET("/**", http()).before(BeforeFilterFunctions.uri("http://localhost:8020")).build();
+	}
 
-    // <.>
-    @Bean
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    RouterFunction<ServerResponse> api() {
-        return route()
-                .GET("/api/**", http())
-                .before(BeforeFilterFunctions.uri("http://localhost:8081"))
-                .before(BeforeFilterFunctions.rewritePath("/api", "/")) // <.>
-                .filter(TokenRelayFilterFunctions.tokenRelay())  // <.>
-                .build();
-    }
-
+	// <.>
+	@Bean
+	@Order(Ordered.HIGHEST_PRECEDENCE)
+	RouterFunction<ServerResponse> api() {
+		return route().GET("/api/**", http())
+			.before(BeforeFilterFunctions.uri("http://localhost:8081"))
+			.before(BeforeFilterFunctions.rewritePath("/api", "/")) // <.>
+			.filter(TokenRelayFilterFunctions.tokenRelay()) // <.>
+			.build();
+	}
 
 }
