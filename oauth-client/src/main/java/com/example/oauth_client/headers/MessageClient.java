@@ -1,9 +1,9 @@
-package com.example.oauth_client;
+package com.example.oauth_client.headers;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
-@Component
+@Component ("headersMessageClient")
 class MessageClient {
 
 	private final RestClient http;
