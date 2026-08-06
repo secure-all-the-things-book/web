@@ -3,14 +3,15 @@
     The Message Delivery Room
 </title>
 <body>
+<!--.-->
 <div id="message"></div>
 <script>
     addEventListener('load', async () => {
+        // <.>
         const json = await fetch('/api/message')
         const data = await json.json()
         document.getElementById('message').innerHTML = data['message']
     })
 </script>
-
 </body>
 </html>
