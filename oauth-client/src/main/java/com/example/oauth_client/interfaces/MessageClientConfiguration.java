@@ -8,9 +8,10 @@ import org.springframework.security.oauth2.client.web.client.support.OAuth2RestC
 @Configuration
 class MessageClientConfiguration {
 
-    @Bean
-    OAuth2RestClientHttpServiceGroupConfigurer auth2RestClientHttpServiceGroupConfigurer(
-            OAuth2AuthorizedClientManager aacm) { //<.>
-        return OAuth2RestClientHttpServiceGroupConfigurer.from(aacm);
-    }
+	@Bean
+	OAuth2RestClientHttpServiceGroupConfigurer auth2RestClientHttpServiceGroupConfigurer(
+			OAuth2AuthorizedClientManager aacm) { // <.>
+		return OAuth2RestClientHttpServiceGroupConfigurer.from(aacm);
+	}
+
 }

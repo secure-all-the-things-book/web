@@ -7,19 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller ("restclientMessageController")
+@Controller("restclientMessageController")
 @ResponseBody
 class MessageController {
 
-    private final MessageClient client;
+	private final MessageClient client;
 
-    MessageController(@Qualifier("restclientMessageClient") MessageClient client) {
-        this.client = client;
-    }
+	MessageController(@Qualifier("restclientMessageClient") MessageClient client) {
+		this.client = client;
+	}
 
-    @GetMapping("/restclient")
-    Message getMessage() {
-        return this.client.getMessage();
-    }
+	@GetMapping("/restclient")
+	Message getMessage() {
+		return this.client.getMessage();
+	}
 
 }

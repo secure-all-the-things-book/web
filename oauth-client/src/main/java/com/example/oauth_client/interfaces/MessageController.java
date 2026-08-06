@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ResponseBody
 class MessageController {
 
-    private final MessageClient client;
+	private final MessageClient client;
 
-    MessageController( MessageClient client) {
-        this.client = client;
-    }
+	MessageController(MessageClient client) {
+		this.client = client;
+	}
 
-    @GetMapping("/interfaces")
-    Message getMessage() {
-        return this.client.getMessage();
-    }
+	@GetMapping("/interfaces")
+	Message getMessage() {
+		return this.client.getMessage();
+	}
 
 }

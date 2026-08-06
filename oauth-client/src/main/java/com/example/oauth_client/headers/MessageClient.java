@@ -3,7 +3,7 @@ package com.example.oauth_client.headers;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
-@Component ("headersMessageClient")
+@Component("headersMessageClient")
 class MessageClient {
 
 	private final RestClient http;

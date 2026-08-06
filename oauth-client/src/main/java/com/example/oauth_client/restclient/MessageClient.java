@@ -10,23 +10,21 @@ import static org.springframework.security.oauth2.client.web.ClientAttributes.cl
 @Component("restclientMessageClient")
 class MessageClient {
 
-    private final RestClient http;
+	private final RestClient http;
 
-    MessageClient(
-            OAuth2AuthorizedClientManager am, // <.>
-                  RestClient.Builder http) {
-        this.http = http
-                .requestInterceptor(new OAuth2ClientHttpRequestInterceptor(am)) // <.>
-                .build();
-    }
+	MessageClient(OAuth2AuthorizedClientManager am, // <.>
+			RestClient.Builder http) {
+		this.http = http.requestInterceptor(new OAuth2ClientHttpRequestInterceptor(am)) // <.>
+			.build();
+	}
 
-    Message getMessage() {
-        return this.http //
-                .get()//
-                .uri("http://localhost:8081/message") //
-                .attributes(clientRegistrationId("spring"))// <.>
-                .retrieve() //
-                .body(Message.class);
-    }
+	Message getMessage() {
+		return this.http //
+			.get()//
+			.uri("http://localhost:8081/message") //
+			.attributes(clientRegistrationId("spring"))// <.>
+			.retrieve() //
+			.body(Message.class);
+	}
 
 }
